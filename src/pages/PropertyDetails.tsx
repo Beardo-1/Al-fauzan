@@ -1,0 +1,447 @@
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import TransparentNavigation from '@/components/TransparentNavigation';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { 
+  ArrowLeft, 
+  MapPin, 
+  Bed, 
+  Bath, 
+  Square, 
+  Car,
+  Heart,
+  Share2,
+  Phone,
+  Mail,
+  Calendar,
+  Star,
+  Eye,
+  Wifi,
+  Shield,
+  Zap,
+  Trees,
+  Camera,
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react';
+
+const PropertyDetails = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [language, setLanguage] = useState<'EN' | 'AR'>('EN');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showContactForm, setShowContactForm] = useState(false);
+
+  // Mock property data
+  const property = {
+    id: 1,
+    title: "Luxury Villa in Al Malqa",
+    type: "Villa",
+    price: "4,500,000",
+    currency: "SAR",
+    location: "Al Malqa, Riyadh",
+    beds: 6,
+    baths: 7,
+    area: 850,
+    parking: 4,
+    yearBuilt: 2022,
+    status: "Available",
+    images: [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=1200&h=800&fit=crop"
+    ],
+    description: "Experience luxury living in this stunning villa featuring contemporary design, premium finishes, and breathtaking views. Located in the prestigious Al Malqa district.",
+    features: [
+      "Swimming Pool",
+      "Private Garden",
+      "Maid's Room",
+      "Driver's Room",
+      "Central AC",
+      "Smart Home System",
+      "Security System",
+      "Covered Parking"
+    ],
+    amenities: [
+      { icon: Wifi, name: "High-Speed Internet" },
+      { icon: Shield, name: "24/7 Security" },
+      { icon: Zap, name: "Backup Generator" },
+      { icon: Trees, name: "Landscaped Garden" },
+      { icon: Camera, name: "CCTV System" }
+    ],
+    agent: {
+      name: "Ahmed Al-Rashid",
+      phone: "+966 50 123 4567",
+      email: "it@alfauzan.com",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      rating: 4.9,
+      properties: 45
+    },
+    neighborhood: {
+      schools: ["Al Malqa International School", "Riyadh American School"],
+      hospitals: ["King Faisal Hospital", "Al Malqa Medical Center"],
+      malls: ["Al Malqa Mall", "Granada Center"],
+      restaurants: ["The Globe", "Al Malqa Café", "Spazio"]
+    }
+  };
+
+  const content = {
+    EN: {
+      backToProperties: "Back to Properties",
+      propertyOverview: "Property Overview",
+      features: "Features & Amenities",
+      neighborhood: "Neighborhood",
+      contactAgent: "Contact Agent",
+      scheduleViewing: "Schedule Viewing",
+      share: "Share Property",
+      save: "Save Property",
+      bedrooms: "Bedrooms",
+      bathrooms: "Bathrooms",
+      area: "Area",
+      parking: "Parking",
+      yearBuilt: "Year Built",
+      propertyType: "Property Type",
+      schools: "Schools",
+      hospitals: "Hospitals",
+      shopping: "Shopping",
+      dining: "Dining",
+      agentProperties: "Properties Listed",
+      rating: "Rating"
+    },
+    AR: {
+      backToProperties: "العودة للعقارات",
+      propertyOverview: "نظرة عامة على العقار",
+      features: "المميزات والخدمات",
+      neighborhood: "الحي",
+      contactAgent: "تواصل مع الوكيل",
+      scheduleViewing: "حجز موعد معاينة",
+      share: "مشاركة العقار",
+      save: "حفظ العقار",
+      bedrooms: "غرف النوم",
+      bathrooms: "دورات المياه",
+      area: "المساحة",
+      parking: "المواقف",
+      yearBuilt: "سنة البناء",
+      propertyType: "نوع العقار",
+      schools: "المدارس",
+      hospitals: "المستشفيات",
+      shopping: "التسوق",
+      dining: "المطاعم",
+      agentProperties: "العقارات المدرجة",
+      rating: "التقييم"
+    }
+  };
+
+  const currentContent = content[language];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + property.images.length) % property.images.length);
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <TransparentNavigation language={language} onLanguageChange={setLanguage} />
+      
+      {/* Image Gallery */}
+      <section className="relative h-[70vh] overflow-hidden">
+        <div className="relative w-full h-full">
+          <img
+            src={property.images[currentImageIndex]}
+            alt={property.title}
+            className="w-full h-full object-cover"
+          />
+          
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm p-3 rounded-full text-white hover:bg-black/70 transition-all duration-300"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm p-3 rounded-full text-white hover:bg-black/70 transition-all duration-300"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Back Button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute top-24 left-6 z-10 flex items-center space-x-2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white hover:bg-black/70 transition-all duration-300"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            <span>{currentContent.backToProperties}</span>
+          </button>
+
+          {/* Quick Actions */}
+          <div className="absolute top-24 right-6 flex space-x-2">
+            <button className="bg-black/50 backdrop-blur-sm p-3 rounded-full text-white hover:bg-black/70 transition-all duration-300">
+              <Heart className="h-5 w-5" />
+            </button>
+            <button className="bg-black/50 backdrop-blur-sm p-3 rounded-full text-white hover:bg-black/70 transition-all duration-300">
+              <Share2 className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Image Counter */}
+          <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm">
+            {currentImageIndex + 1} / {property.images.length}
+          </div>
+
+          {/* Thumbnails */}
+          <div className="absolute bottom-4 left-4 flex space-x-2">
+            {property.images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-16 h-12 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                  index === currentImageIndex ? 'border-yellow-400' : 'border-transparent'
+                }`}
+              >
+                <img src={image} alt="" className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Property Info */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-3 gap-12">
+          
+          {/* Main Content */}
+          <div className="lg:col-span-2">
+            
+            {/* Header */}
+            <div className="mb-8">
+              <div className="flex items-center space-x-2 mb-4">
+                <span className="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                  {property.type}
+                </span>
+                <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                  {property.status}
+                </span>
+              </div>
+              
+              <h1 className={`text-4xl md:text-5xl font-bold text-white mb-4 ${
+                language === 'AR' ? 'font-arabic' : ''
+              }`}>
+                {property.title}
+              </h1>
+              
+              <div className="flex items-center text-gray-300 mb-4">
+                <MapPin className="h-5 w-5 mr-2" />
+                <span className={language === 'AR' ? 'font-arabic' : ''}>{property.location}</span>
+              </div>
+              
+              <div className="text-3xl font-bold text-yellow-400">
+                {property.price} {property.currency}
+              </div>
+            </div>
+
+            {/* Property Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+              <div className="bg-gray-800 p-4 rounded-lg text-center">
+                <Bed className="h-6 w-6 text-yellow-400 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-white">{property.beds}</div>
+                <div className="text-gray-400 text-sm">{currentContent.bedrooms}</div>
+              </div>
+              <div className="bg-gray-800 p-4 rounded-lg text-center">
+                <Bath className="h-6 w-6 text-yellow-400 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-white">{property.baths}</div>
+                <div className="text-gray-400 text-sm">{currentContent.bathrooms}</div>
+              </div>
+              <div className="bg-gray-800 p-4 rounded-lg text-center">
+                <Square className="h-6 w-6 text-yellow-400 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-white">{property.area}</div>
+                <div className="text-gray-400 text-sm">m²</div>
+              </div>
+              <div className="bg-gray-800 p-4 rounded-lg text-center">
+                <Car className="h-6 w-6 text-yellow-400 mx-auto mb-2" />
+                <div className="text-2xl font-bold text-white">{property.parking}</div>
+                <div className="text-gray-400 text-sm">{currentContent.parking}</div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mb-8">
+              <h2 className={`text-2xl font-bold text-white mb-4 ${
+                language === 'AR' ? 'font-arabic text-right' : ''
+              }`}>
+                {currentContent.propertyOverview}
+              </h2>
+              <p className={`text-gray-300 leading-relaxed ${
+                language === 'AR' ? 'font-arabic text-right' : ''
+              }`}>
+                {property.description}
+              </p>
+            </div>
+
+            {/* Features */}
+            <div className="mb-8">
+              <h2 className={`text-2xl font-bold text-white mb-4 ${
+                language === 'AR' ? 'font-arabic text-right' : ''
+              }`}>
+                {currentContent.features}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {property.features.map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3 bg-gray-800 p-3 rounded-lg">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                    <span className={`text-gray-300 ${language === 'AR' ? 'font-arabic' : ''}`}>
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Amenities */}
+            <div className="mb-8">
+              <div className="grid md:grid-cols-3 gap-4">
+                {property.amenities.map((amenity, index) => (
+                  <div key={index} className="flex items-center space-x-3 bg-gray-800 p-4 rounded-lg">
+                    <amenity.icon className="h-6 w-6 text-yellow-400" />
+                    <span className={`text-gray-300 ${language === 'AR' ? 'font-arabic' : ''}`}>
+                      {amenity.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Neighborhood */}
+            <div>
+              <h2 className={`text-2xl font-bold text-white mb-4 ${
+                language === 'AR' ? 'font-arabic text-right' : ''
+              }`}>
+                {currentContent.neighborhood}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gray-800 p-4 rounded-lg">
+                  <h3 className="text-yellow-400 font-semibold mb-2">{currentContent.schools}</h3>
+                  <ul className="space-y-1">
+                    {property.neighborhood.schools.map((school, index) => (
+                      <li key={index} className="text-gray-300 text-sm">{school}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-gray-800 p-4 rounded-lg">
+                  <h3 className="text-yellow-400 font-semibold mb-2">{currentContent.hospitals}</h3>
+                  <ul className="space-y-1">
+                    {property.neighborhood.hospitals.map((hospital, index) => (
+                      <li key={index} className="text-gray-300 text-sm">{hospital}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-gray-800 p-4 rounded-lg">
+                  <h3 className="text-yellow-400 font-semibold mb-2">{currentContent.shopping}</h3>
+                  <ul className="space-y-1">
+                    {property.neighborhood.malls.map((mall, index) => (
+                      <li key={index} className="text-gray-300 text-sm">{mall}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-gray-800 p-4 rounded-lg">
+                  <h3 className="text-yellow-400 font-semibold mb-2">{currentContent.dining}</h3>
+                  <ul className="space-y-1">
+                    {property.neighborhood.restaurants.map((restaurant, index) => (
+                      <li key={index} className="text-gray-300 text-sm">{restaurant}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24">
+              
+              {/* Agent Card */}
+              <div className="bg-gray-800 rounded-lg p-6 mb-6">
+                <div className="flex items-center space-x-4 mb-4">
+                  <img
+                    src={property.agent.image}
+                    alt={property.agent.name}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div>
+                    <h3 className={`text-white font-semibold ${language === 'AR' ? 'font-arabic' : ''}`}>
+                      {property.agent.name}
+                    </h3>
+                    <div className="flex items-center space-x-2">
+                      <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                      <span className="text-gray-300 text-sm">{property.agent.rating}</span>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      {property.agent.properties} {currentContent.agentProperties}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                                     <Button 
+                     className="w-full bg-yellow-400 hover:bg-yellow-500 text-black"
+                     onClick={() => window.open(`mailto:${property.agent.email}?subject=Property Inquiry: ${property.title}`, '_blank')}
+                   >
+                     <Mail className="h-4 w-4 mr-2" />
+                     {currentContent.contactAgent}
+                   </Button>
+                                     <Button 
+                     variant="outline" 
+                     className="w-full border-gray-600 text-white hover:bg-gray-700"
+                     onClick={() => window.open(`mailto:${property.agent.email}?subject=Schedule Viewing: ${property.title}`, '_blank')}
+                   >
+                     <Calendar className="h-4 w-4 mr-2" />
+                     {currentContent.scheduleViewing}
+                   </Button>
+                </div>
+              </div>
+
+              {/* Property Details */}
+              <div className="bg-gray-800 rounded-lg p-6">
+                <h3 className={`text-white font-semibold mb-4 ${language === 'AR' ? 'font-arabic' : ''}`}>
+                  Property Details
+                </h3>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{currentContent.propertyType}</span>
+                    <span className="text-white">{property.type}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{currentContent.yearBuilt}</span>
+                    <span className="text-white">{property.yearBuilt}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{currentContent.area}</span>
+                    <span className="text-white">{property.area} m²</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Views</span>
+                    <span className="text-white flex items-center">
+                      <Eye className="h-4 w-4 mr-1" />
+                      1,250
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default PropertyDetails;
