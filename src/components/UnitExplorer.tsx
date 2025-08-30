@@ -118,8 +118,8 @@ const UnitExplorer: React.FC<UnitExplorerProps> = ({ projectId, projectName }) =
         paymentTerms: 'Monthly in advance'
       },
       images: [
-        'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop'
+            '/assets/images/projects/Al fauzan industrial city/hero.png',
+    '/assets/images/projects/DMC/Hero.png'
       ]
     },
     {
@@ -157,7 +157,7 @@ const UnitExplorer: React.FC<UnitExplorerProps> = ({ projectId, projectName }) =
         paymentTerms: 'Monthly in advance'
       },
       images: [
-        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop'
+        '/assets/images/projects/SAMA/sama.png'
       ]
     },
     {
@@ -195,7 +195,7 @@ const UnitExplorer: React.FC<UnitExplorerProps> = ({ projectId, projectName }) =
         paymentTerms: 'Monthly in advance'
       },
       images: [
-        'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800&h=600&fit=crop'
+        '/assets/images/projects/remas/remas.png'
       ]
     }
   ];

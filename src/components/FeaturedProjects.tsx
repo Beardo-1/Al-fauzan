@@ -7,32 +7,32 @@ const FeaturedProjects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Al Fauzan Business District',
+      title: 'Al Fauzan Industrial City',
       location: 'Riyadh, Saudi Arabia',
       year: '2024',
-      type: 'Commercial',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
-      description: 'A modern commercial complex featuring state-of-the-art office spaces and retail outlets.',
+      type: 'Industrial',
+      image: '/assets/images/projects/Al fauzan industrial city/hero.png',
+      description: 'A modern industrial complex featuring state-of-the-art manufacturing facilities and logistics centers.',
       status: 'Under Construction'
     },
     {
       id: 2,
-      title: 'Industrial Park Excellence',
-      location: 'Dammam, Saudi Arabia',
+      title: 'Del Mar Compound',
+      location: 'Riyadh, Saudi Arabia',
       year: '2023',
-      type: 'Industrial',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12',
-      description: 'Premium industrial facilities designed for modern manufacturing and logistics.',
+      type: 'Residential',
+      image: '/assets/images/projects/DMC/Hero.png',
+      description: 'Premium residential compound with luxury amenities and modern living spaces.',
       status: 'Completed'
     },
     {
       id: 3,
-      title: 'Luxury Residential Towers',
-      location: 'Jeddah, Saudi Arabia',
+      title: 'SAMA Project',
+      location: 'Riyadh, Saudi Arabia',
       year: '2024',
-      type: 'Residential',
-      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00',
-      description: 'High-end residential towers with panoramic city views and premium amenities.',
+      type: 'Commercial',
+      image: '/assets/images/projects/SAMA/sama.png',
+      description: 'High-end commercial development with panoramic city views and premium business facilities.',
       status: 'Planning Phase'
     }
   ];

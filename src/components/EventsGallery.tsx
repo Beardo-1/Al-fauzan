@@ -271,7 +271,7 @@ const EventsGallery = () => {
                    onError={(e) => {
                      // Fallback to a placeholder if image doesn't exist
                      const target = e.target as HTMLImageElement;
-                     target.src = `https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop&ix=${index}`;
+                     target.src = `/assets/images/events/${index + 1}.png`;
                    }}
                  />
                 {/* Overlay */}
@@ -350,7 +350,7 @@ const EventsGallery = () => {
                        className="w-20 h-16 object-cover rounded-lg"
                        onError={(e) => {
                          const target = e.target as HTMLImageElement;
-                         target.src = `https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=150&fit=crop&ix=${index}`;
+                         target.src = `/assets/images/events/${index + 1}.png`;
                        }}
                      />
                      {/* Active indicator dot */}

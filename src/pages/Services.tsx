@@ -56,7 +56,7 @@ const Services = () => {
              sqm: "15M+",
              clients: "500+"
            },
-          image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop",
+          image: "/assets/images/projects/Al fauzan industrial city/hero.png",
           testimonial: {
             text: "Al Fauzan delivered our industrial complex on time and exceeded all expectations. The facilities have significantly improved our operational efficiency.",
             client: "Ahmed Al-Rashid, Operations Director"
@@ -81,7 +81,7 @@ const Services = () => {
              sqm: "8M+",
              clients: "300+"
            },
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+          image: "/assets/images/projects/SAMA/sama.png",
           testimonial: {
             text: "Al Fauzan delivered our corporate headquarters on time and exceeded all expectations. The attention to detail and quality is outstanding.",
             client: "Fatima Al-Zahra, CEO of TechCorp"
@@ -106,7 +106,7 @@ const Services = () => {
              sqm: "5M+",
              clients: "200+"
            },
-          image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+          image: "/assets/images/projects/DMC/Hero.png",
           testimonial: {
             text: "Our family has been living in their community for 3 years. The quality of construction and amenities are exceptional.",
             client: "Mohammed Al-Faisal, Resident"
@@ -131,7 +131,7 @@ const Services = () => {
              sqm: "4M+",
              clients: "150+"
            },
-          image: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800&h=600&fit=crop",
+          image: "/assets/images/projects/remas/remas.png",
           testimonial: {
             text: "Their warehouse solution has revolutionized our logistics operations. The design is both functional and cost-effective.",
             client: "Sara Al-Mutairi, Logistics Manager"
@@ -233,7 +233,7 @@ const Services = () => {
             sqm: "2 مليون+",
             clients: "500+"
           },
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+          image: "/assets/images/projects/SAMA/sama.png",
           testimonial: {
             text: "سلمت الفوزان مقرنا الرئيسي في الوقت المحدد وتجاوزت جميع التوقعات. الاهتمام بالتفاصيل والجودة متميز.",
             client: "أحمد الراشد، الرئيس التنفيذي لشركة التقنية"

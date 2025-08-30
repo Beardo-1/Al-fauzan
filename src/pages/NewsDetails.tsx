@@ -35,7 +35,7 @@ const NewsDetails = () => {
     readTime: "5 min read",
     views: 2450,
     likes: 89,
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop",
+    image: "/assets/images/News/1.png",
     excerpt: "Alfauzan Real Estate Development announces a groundbreaking mixed-use project in NEOM, featuring sustainable design and cutting-edge technology integration.",
     content: `
       <p>Alfauzan Real Estate Development has announced its latest and most ambitious project to date - a revolutionary mixed-use development in NEOM, Saudi Arabia's futuristic mega-city. This groundbreaking project represents a significant milestone in the company's commitment to supporting Saudi Arabia's Vision 2030.</p>
@@ -62,21 +62,21 @@ const NewsDetails = () => {
       {
         id: 2,
         title: "Saudi Arabia's Real Estate Market Shows Strong Growth in Q1 2024",
-        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=200&fit=crop",
+        image: "/assets/images/News/2.png",
         date: "March 10, 2024",
         category: "Market Analysis"
       },
       {
         id: 3,
         title: "Alfauzan Wins Excellence Award for Riyadh Business Center",
-        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=200&fit=crop",
+        image: "/assets/images/News/3.png",
         date: "March 5, 2024",
         category: "Awards"
       },
       {
         id: 4,
         title: "Sustainable Building Practices: Leading the Industry Forward",
-        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
+        image: "/assets/images/News/4.png",
         date: "February 28, 2024",
         category: "Sustainability"
       }
@@ -290,7 +290,7 @@ const NewsDetails = () => {
                 </h3>
                 <div className="flex items-center space-x-3 mb-4">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&h=60&fit=crop&crop=face"
+                    src="/assets/images/CEO.png"
                     alt={article.author}
                     className="w-12 h-12 rounded-full object-cover"
                   />

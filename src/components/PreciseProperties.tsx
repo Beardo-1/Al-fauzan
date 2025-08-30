@@ -89,7 +89,7 @@ const PreciseProperties: React.FC = () => {
           agent: {
             name: "Mohammad Tariq",
             phone: "+966 565222000",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+            image: "/assets/images/CEO.png"
           }
         }
       ]
@@ -146,7 +146,7 @@ const PreciseProperties: React.FC = () => {
           agent: {
             name: "محمد طارق",
             phone: "+966 565222000",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+            image: "/assets/images/CEO.png"
           }
         }
       ]

@@ -48,11 +48,11 @@ const PropertyDetails = () => {
     yearBuilt: 2022,
     status: "Available",
     images: [
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=1200&h=800&fit=crop"
+          "/assets/images/projects/DMC/1.jpeg",
+    "/assets/images/projects/DMC/2.jpeg",
+    "/assets/images/projects/DMC/3.jpeg",
+    "/assets/images/projects/DMC/4.jpeg",
+    "/assets/images/projects/DMC/5.jpeg"
     ],
     description: "Experience luxury living in this stunning villa featuring contemporary design, premium finishes, and breathtaking views. Located in the prestigious Al Malqa district.",
     features: [
@@ -76,7 +76,7 @@ const PropertyDetails = () => {
       name: "Ahmed Al-Rashid",
       phone: "+966 50 123 4567",
       email: "it@alfauzan.com",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      image: "/assets/images/CEO.png",
       rating: 4.9,
       properties: 45
     },
